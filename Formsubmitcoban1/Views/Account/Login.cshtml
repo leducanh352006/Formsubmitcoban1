@@ -1,0 +1,27 @@
+﻿@model YourAppName.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<h2>Đăng nhập hệ thống</h2>
+
+<!-- Hiển thị thông báo kết quả từ Controller truyền sang -->
+@if (ViewBag.Message != null)
+{
+    <h4 class="@ViewBag.Status">@ViewBag.Message</h4>
+}
+
+<!-- Form Submit cơ bản -->
+<form asp-controller="Account" asp-action="Login" method="post">
+    <div style="margin-bottom: 10px;">
+        <label>Username:</label><br />
+        <input asp-for="Username" type="text" placeholder="Nhập tài khoản..." />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label>Password:</label><br />
+        <input asp-for="Password" type="password" placeholder="Nhập mật khẩu..." />
+    </div>
+
+    <button type="submit">Login</button>
+</form>
